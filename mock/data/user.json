@@ -1,0 +1,20 @@
+{
+  "resultCode": 0,
+  "resultMsg": "",
+  "data": [
+    {
+      "name": "zhangsan",
+      "age": 50
+    },
+    {
+      "name": "lisi",
+      "age": 32
+    },
+    {
+      "name": "wangwu",
+      "age": 17
+    }
+  ],
+  "code": 0,
+  "message": ""
+}

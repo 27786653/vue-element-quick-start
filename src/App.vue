@@ -1,18 +1,15 @@
 <template>
-  <div id="app">
-    <NavMenu></NavMenu>
-    <Container></Container>
+  <div id="app" class="fillcontain">
+    <div id="container">
+      <transition name="slide-fade">
+        <router-view></router-view>
+      </transition>
+    </div>
   </div>
 </template>
 
 <script>
-import './components/common/style.scss';
-import NavMenu from './components/common/NavMenu.vue';
-import Container from './components/common/Container.vue';
-
-export default {
-  components: {
-    NavMenu, Container,
-  },
-};
+  export default {
+    name: 'app',
+  };
 </script>

@@ -1,16 +1,18 @@
 {
-  "name": "vue-element-quick-start",
+  "name": "wechat_manager_ui",
   "version": "1.0.0",
-  "description": "A Vue.js and Element UI project",
-  "author": "chachaxw <867571123@qq.com>",
+  "description": "wechat_manager_ui",
+  "author": "forest Li <791120662@qq.com>",
   "private": true,
   "scripts": {
     "dev": "node build/dev-server.js",
     "build": "node build/build.js",
     "lint": "eslint --ext .js,.vue src test/unit/specs test/e2e/specs",
-    "server": "supervisor node server/server.js"
+    "mock": "supervisor node mock/server.js"
   },
   "dependencies": {
+    "axios": "~0.16.2",
+    "echarts": "^4.2.1",
     "element-ui": "^2.0.1",
     "normalize.css": "^7.0.0",
     "opn": "^5.1.0",

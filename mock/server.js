@@ -7,13 +7,13 @@ const app = express();
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.set('port', process.env.PORT || 8080);
+app.set('port', process.env.PORT || 9999);
 
 // 允许跨域(调试)
 app.use(cors());
 
 // 自动require controller文件
-const files = fs.readdirSync('server/controller');
+const files = fs.readdirSync('mock/controller');
 files.forEach(function(file) {
   if (file.indexOf('.controller') < 0) return;
   require('./controller/' + file)(app);
@@ -23,5 +23,5 @@ app.listen(app.get('port'), function(err) {
   if(err) {
     console.log(err);
   }
-  console.log('CORS-enabled web server listening on the localhost:'+ app.get('port'));
+  console.log('CORS-enabled web server listening on the http://localhost:'+ app.get('port'));
 });

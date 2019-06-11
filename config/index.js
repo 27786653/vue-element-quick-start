@@ -1,6 +1,14 @@
 // see http://vuejs-templates.github.io/webpack for documentation.
 var path = require('path')
+var env = '';
+if (process.env.NODE_ENV === 'dev') {
+  env = require('./dev.env');
+} else {
+  env = require('./prod.env');
+}
+var assetsPublicPath = env.ACCESS_PATH;
 
+console.log('assetsPublicPath=' + assetsPublicPath + '\n');
 module.exports = {
   build: {
     env: require('./prod.env'),
@@ -18,7 +26,7 @@ module.exports = {
   },
   dev: {
     env: require('./dev.env'),
-    port: 3000,
+    port: 8080,
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     proxyTable: {},
@@ -28,5 +36,16 @@ module.exports = {
     // In our experience, they generally work as expected,
     // just be aware of this issue when enabling this option.
     cssSourceMap: false
-  }
+  },
+  prod: {
+    env: require('./prod.env'),
+    index: path.resolve(__dirname, '../dist/index.html'),
+    assetsRoot: path.resolve(__dirname, '../dist'),
+    assetsSubDirectory: 'static',
+    assetsPublicPath: assetsPublicPath,
+    productionSourceMap: true,
+    productionGzip: false,
+    productionGzipExtensions: ['js', 'css'],
+    bundleAnalyzerReport: process.env.npm_config_report
+  },
 }
